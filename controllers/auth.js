@@ -35,10 +35,10 @@ const login = (req, res) => {
 
     const hash = rows[0].password
     bcrypt.compare(password, hash)
-      .then(result => {
+      .then(result => {xxxxxx
         if (!result) return res.status(400).send('Invalid password')
 
-        const data = { ...rows[0] }
+        const data = rows[0];
         data.password = 'REDACTED'
 
         const token = jwt.sign(data, 'secret')
